@@ -95,7 +95,7 @@ api_hash='9fb5fdf24e25e54b745478b4fb71573b',
 session_name=bot_id,
 token=Token
 }
-Sudos = {sudoid,1783964439}
+Sudos = {sudoid,665877797,1796059389}
 function Bot(msg)  
 local idbot = false  
 if tonumber(msg.sender_id.user_id) == tonumber(bot_id) then  
@@ -121,14 +121,12 @@ type = 'keyboard',
 resize = true,
 is_personal = true,
 data = {
-{{text = 'حذف بوت ✖️',type = 'text'},{text ='صنع بوت ➕',type = 'text'}},
-{{text ='ايقاف بوت 〰️',type = 'text'},{text ='تشغيل بوت ✔️',type = 'text'}},
-{{text ='ايقاف الكل ⏹',type = 'text'},{text ='حذف الكل ➖',type = 'text'},{text ='تشغيل الكل ⏺',type = 'text'}},
+{{text = 'حذف بوت ➖',type = 'text'},{text ='صنع بوت ➕',type = 'text'}},
+{{text ='تشغيل بوت 〰️',type = 'text'},{text ='ايقاف بوت 〰️',type = 'text'}},
 {{text = 'تفعيل الوضع المجاني ▶️',type = 'text'},{text ='تعطيل الوضع المجاني ⏹',type = 'text'}},
 {{text = 'معلومات السيرفر ⚠️',type = 'text'},{text ='المصنوعات ♾', type = 'text'},{text ='الاحصائيات 🔘', type = 'text'}},
 {{text = 'تصفيه المصنوعات ♻️',type = 'text'}},
 {{text = 'اذاعه 🔖',type = 'text'},{text = 'الاجباري 📢',type = 'text'}},
-{{text = 'تحديث ملف المصنوعات ♻️',type = 'text'}},
 {{text = 'تحديث الصانع 🔁',type = 'text'},{text = "تحديث المصنوعات🔄", type = 'text'}},
 {{text = 'إلغاء 🚫',type = 'text'}},
 }
@@ -138,8 +136,9 @@ type = 'keyboard',
 resize = true,
 is_personal = true,
 data = {
-{{text ='حذف البوت ✖️',type = 'text'},{text = 'تشغيل البوت ⚙',type = 'text'},{text = 'صنع بوت ➕',type = 'text'}},
-{{text = 'معرفة المزيد 📩',type = 'text'}},
+{{text = 'صنع بوت ➕',type = 'text'},{text ='عمل رن ⚙',type = 'text'},{text ='حذف البوت ➖',type = 'text'}},
+{{text = 'من نحن ؟!📝',type = 'text'}},
+{{text = 'إلغاء 🚫',type = 'text'}},
 }
 }
 reply_markuk = bot.replyMarkup{
@@ -147,15 +146,7 @@ type = 'keyboard',
 resize = true,
 is_personal = true,
 data = {
-{{text ='الغاء ✖️',type = 'text'},{text = 'تأكيد ✅',type = 'text'}},
-}
-}
-reply_markui = bot.replyMarkup{
-type = 'keyboard',
-resize = true,
-is_personal = true,
-data = {
-{{text = 'إلغاء 🚫',type = 'text'}},
+{{text = 'تأكيد 🔸️',type = 'text'},{text ='الغاء🔹️',type = 'text'}},
 }
 }
 function Run(msg,data)
@@ -172,48 +163,48 @@ if devB(msg.sender_id.user_id)  then
 if text == 'إلغاء 🚫' then 
 if redis:get(bot_id..":Send:"..msg.sender_id.user_id) then
 redis:del(bot_id..":Send:"..msg.sender_id.user_id)
-u = "*📫꒐ تم الغاء الاذاعة عزيزي*"
+u = "- تم الغاء الاذاعه"
 elseif redis:get(bot_id..":set:"..msg.chat_id..":addCh") then
 redis:del(bot_id..":set:"..msg.chat_id..":addCh")
-u = "*🔘꒐ تم الغاء تعيين الاشتراك الاجباري*"
+u = "- تم الغاء تعيين الاشتراك الاجباري"
 elseif redis:get(bot_id.."Send:UserName"..msg.chat_id..":"..msg.sender_id.user_id) then
 redis:del(bot_id.."Send:UserName"..msg.chat_id..":"..msg.sender_id.user_id) 
-u = '*💢꒐ تم الغاء الطلب بنجاح.*'
+u = '▪︎تم اللغاء الطلب بنجاح.'
 elseif redis:get(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender_id.user_id) then
 redis:del(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender_id.user_id)
-u = '*💢꒐ تم الغاء الطلب بنجاح.*'
+u = '▪︎تم اللغاء الطلب بنجاح.'
 elseif redis:get(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender_id.user_id) then
 redis:del(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender_id.user_id) 
-u = '*💢꒐ تم الغاء الطلب بنجاح.*'
+u = '▪︎تم اللغاء الطلب بنجاح.'
 elseif redis:get(bot_id.."op:Screen"..msg.chat_id..":"..msg.sender_id.user_id) then
 redis:del(bot_id.."op:Screen"..msg.chat_id..":"..msg.sender_id.user_id) 
-u = '*💢꒐ تم الغاء الطلب بنجاح.*'
+u = '▪︎تم اللغاء الطلب بنجاح.'
 elseif redis:get(bot_id.."Del:Screen"..msg.chat_id..":"..msg.sender_id.user_id) then
 redis:del(bot_id.."Del:Screen"..msg.chat_id..":"..msg.sender_id.user_id) 
-u = '*💢꒐ تم الغاء الطلب بنجاح.*'
+u = '▪︎تم اللغاء الطلب بنجاح.'
 else
-u = '*👋🏻꒐ أهلا بك في اوامر المطور الجاهزة*' 
+u = '▪︎أهلا بك في صانع بوتات الحمايه\n\n▪︎استخدم الاوامر اسفل' 
 end
-bot.sendText(msg.chat_id,msg.id,u, 'md', true , false, false, false, reply_markup)
+bot.sendText(msg.chat_id,msg.id,"*"..u.."*", 'md', false, false, false, false, reply_markup)
 return false
 end
 if redis:get(bot_id..":Send:"..msg.sender_id.user_id) then
 lis = redis:smembers(bot_id..":user_id") 
 if msg.forward_info or text or msg.content.video_note or msg.content.document or msg.content.audio or msg.content.video or msg.content.voice_note or msg.content.sticker or msg.content.animation or msg.content.photo then 
 redis:del(bot_id..":Send:"..msg.sender_id.user_id)
-bot.sendText(msg.chat_id,msg.id,"*🗣️꒐ يتم ارسال الرساله الى ( "..#lis.." عضو ) *","md",true)
+bot.sendText(msg.chat_id,msg.id,"*- يتم ارسال الرساله الى ( "..#lis.." عضو ) *","md",true)
 for k,v in pairs(lis) do  
 local FedMsg = bot.forwardMessages(v, msg.chat_id, msg.id,0,0,true,true,false)
 if FedMsg then
 redis:incr(bot_id..":count:true") 
 end
 end  
-bot.sendText(msg.chat_id,msg.id,"*✅꒐ تمت الاذاعه بنجاح لـ ( "..redis:get(bot_id..":count:true").." ) عضو *","md",true)
+bot.sendText(msg.chat_id,msg.id,"*تمت الاذاعه ل ( "..redis:get(bot_id..":count:true").." ) عضو *","md",true)
 redis:del(bot_id..":count:true") 
 end
 end
 if text == 'اذاعه 🔖' then 
-bot.sendText(msg.chat_id,msg.id,"*📩꒐ ارسل لي الاذاعة الان :*", 'md', false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})
+bot.sendText(msg.chat_id,msg.id,"*- قم الان بأرسال الرساله *", 'md', false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})
 redis:setex(bot_id..":Send:"..msg.sender_id.user_id,600,true)  
 return false
 end
@@ -223,22 +214,22 @@ redis:del(bot_id..":set:"..msg.chat_id..":addCh")
 if msg.forward_info.origin.chat_id then          
 id_chat = msg.forward_info.origin.chat_id
 else
-bot.sendText(msg.chat_id,msg.id,"*⚠️꒐ عذرا يجب عليك ارسل توجيه من قناه فقط .*","md")
+bot.sendText(msg.chat_id,msg.id,"*- عذرا يجب عليك ارسل توجيه من قناه فقط .*","md")
 return false  
 end     
 sm = bot.getChatMember(id_chat,bot_id)
 if sm.status.luatele == "chatMemberStatusAdministrator" then
 redis:set(bot_id..":TheCh",id_chat) 
-bot.sendText(msg.chat_id,msg.id,"*☑️꒐ تم حفظ القناه بنجاح *","md", true)
+bot.sendText(msg.chat_id,msg.id,"*- تم حفظ القناه بنجاح *","md", true)
 else
-bot.sendText(msg.chat_id,msg.id,"*⚠️꒐ البوت ليس مشرف بالقناه. *","md", true)
+bot.sendText(msg.chat_id,msg.id,"*- البوت ليس مشرف بالقناه. *","md", true)
 end
 end
 end
 if text == 'الاجباري 📢' then 
 if not redis:get(bot_id..":TheCh") then
 redis:setex(bot_id..":set:"..msg.chat_id..":addCh",600,true)  
-return bot.sendText(msg.chat_id,msg.id,"*📥꒐ قم الان بأرسال توجيه من القناه الان *","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
+return bot.sendText(msg.chat_id,msg.id,"*- قم الان بأرسال توجيه من القناه الان *","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
 elseif redis:get(bot_id..":TheCh") then
 infokl = bot.getChatMember(redis:get(bot_id..":TheCh"),bot_id)
 if infokl and infokl.status and infokl.status.luatele == "chatMemberStatusAdministrator" then
@@ -246,75 +237,16 @@ Get_Chat = bot.getChat(redis:get(bot_id..":TheCh"))
 Info_Chats = bot.getSupergroupFullInfo(redis:get(bot_id..":TheCh"))
 if Info_Chats and Info_Chats.invite_link and Info_Chats.invite_link.invite_link and  Get_Chat and Get_Chat.title then 
 redis:setex(bot_id..":set:"..msg.chat_id..":addCh",600,true)  
-return bot.sendText(msg.chat_id,msg.id,"*💢꒐ الاشتراك الاحباري مفعل على قناة :\n"..Info_Chats.invite_link.invite_link.."\n📭꒐ يمكنك تغييرها من خلال ارسال توجيه من قناه اخرى .\n🔖꒐ يمكنك الغاء العمليه من خلال الضغط اسفل .*","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
+return bot.sendText(msg.chat_id,msg.id,"- توجد قناه اشتراك :\n"..Info_Chats.invite_link.invite_link.."\n- يمكنك تغييرها من خلال ارسال توجيه من قناه اخرى .\n - يمكنك الغاء العمليه من خلال الضغط اسفل .","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
 else
 redis:setex(bot_id..":set:"..msg.chat_id..":addCh",600,true)  
-return bot.sendText(msg.chat_id,msg.id,"*🔖꒐ ارسل لي توجية من القناة الأن :*","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
+return bot.sendText(msg.chat_id,msg.id,"*- قم الان بأرسال توجيه من القناه الان *","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
 end
 else
 redis:setex(bot_id..":set:"..msg.chat_id..":addCh",600,true)  
-return bot.sendText(msg.chat_id,msg.id,"*🔖꒐ ارسل لي توجية من القناة الأن :*","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
+return bot.sendText(msg.chat_id,msg.id,"*- قم الان بأرسال توجيه من القناه الان *","md", false, false, false, false, bot.replyMarkup{type = 'keyboard',resize = true,is_personal = true,data = {{{text = 'إلغاء 🚫',type = 'text'}},}})  
 end
 end
-end
-if text == 'حذف الكل ➖' then
-local i = 0
-local t = '*🔘꒐ تم حذف جميع المصنوعات بنجاح .*'
-for v in io.popen('ls /root'):lines() do
-if v then 
-if v ~= bot.getMe().username then 
-if v and v:match('(%S+)[Bb][Oo][Tt]') then 
-i = i +1
-os.execute('screen -S '..v..' -X kill')
-os.execute('cd && rm -fr '..v)
-end
-end 
-end
-end 
-if i == 0 then 
-t = '*⚠️꒐ لا يوجد مصنوعات.*'
-end
-bot.sendText(msg.chat_id,msg.id,t, 'md')
-return false
-end
-if text == 'تشغيل الكل ⏺' then
-local i = 0
-local t = '*🔘꒐ تم تشغيل جميع المصنوعات بنجاح .*'
-for v in io.popen('ls /root'):lines() do
-if v then 
-if v ~= bot.getMe().username then 
-if v and v:match('(%S+)[Bb][Oo][Tt]') then 
-i = i +1
-os.execute('screen -S '..v..' -X kill')
-os.execute('cd && cd '..v..';screen -d -m -S '..v..' lua5.3 start.lua')
-end
-end 
-end
-end 
-if i == 0 then 
-t = '*⚠️꒐ لا يوجد مصنوعات.*'
-end
-bot.sendText(msg.chat_id,msg.id,t, 'md')
-return false
-end
-if text == 'ايقاف الكل ⏹' then
-local i = 0
-local t = '*🔘꒐ تم ايقاف جميع المصنوعات بنجاح .*'
-for v in io.popen('ls /root'):lines() do
-if v then 
-if v ~= bot.getMe().username then 
-if v and v:match('(%S+)[Bb][Oo][Tt]') then 
-i = i +1
-os.execute('screen -S '..v..' -X kill')
-end
-end 
-end
-end 
-if i == 0 then 
-t = '*⚠️꒐ لا يوجد مصنوعات.*'
-end
-bot.sendText(msg.chat_id,msg.id,t, 'md')
-return false
 end
 if text == 'الاحصائيات 🔘' then 
 cubot = 0
@@ -327,23 +259,23 @@ end
 end
 end
 end 
-bot.sendText(msg.chat_id,msg.id,"*📊꒐ الاحصائيات :*\n\n👤꒐ عدد المشتركين : { *"..(redis:scard(bot_id..":user_id") or 1).."* } مشترك .".."\n🔘꒐ عدد المصنوعات : ( *"..cubot.."* ) مصنوع .", 'md')
+bot.sendText(msg.chat_id,msg.id,"- يستخدم البوت حوالي ( *"..(redis:scard(bot_id..":user_id") or 1).."* ) عضو .".."\n- يوجد ( *"..cubot.."* ) مصنوع .", 'md')
 return false
 end
 if text == 'تفعيل الوضع المجاني ▶️' then
 if redis:get(bot_id..":freebot") then
-return bot.sendText(msg.chat_id,msg.id,'*📮꒐ تم تفعيله سابقا .*', 'md', false, false, false, false, reply_markup)
+return bot.sendText(msg.chat_id,msg.id,'▪︎تم تفعيله سابقا .', 'md', false, false, false, false, reply_markup)
 else
 redis:set(bot_id..":freebot",true)
-return bot.sendText(msg.chat_id,msg.id,'*☑️꒐ تم تفعيل الوضع المجاني بنجاح .*', 'md', false, false, false, false, reply_markup)
+return bot.sendText(msg.chat_id,msg.id,'▪︎تم تفعيل الوضع المجاني بنجاح .', 'md', false, false, false, false, reply_markup)
 end
 end
 if text == 'تعطيل الوضع المجاني ⏹' then
 if redis:get(bot_id..":freebot") then
 redis:del(bot_id..":freebot")
-return bot.sendText(msg.chat_id,msg.id,'*✖️꒐ تم تعطيل الوضع المجاني .*', 'md', false, false, false, false, reply_markup)
+return bot.sendText(msg.chat_id,msg.id,'▪︎تم تعطيله بنجاح .', 'md', false, false, false, false, reply_markup)
 else
-return bot.sendText(msg.chat_id,msg.id,'*💢꒐ معطل بالفعل .*', 'md', false, false, false, false, reply_markup)
+return bot.sendText(msg.chat_id,msg.id,'▪︎معطل بالفعل .', 'md', false, false, false, false, reply_markup)
 end
 end
 if text ==  'تصفيه المصنوعات ♻️' then
@@ -385,7 +317,7 @@ return false
 end
 if text == "تحديث المصنوعات🔄" then
 i = 0
-t = '*⚙️꒐ تم تحديث جميع ملفات البوتات .\n\n📮꒐ ارسل اذاعة الى المطورين لعمل تحديث .*'
+t = '▪︎ تم تحديث جميع المشتركين. يجب على المطورين ارسال تحديث'
 for v in io.popen('ls /root'):lines() do
 if v then 
 if v ~= bot.getMe().username then 
@@ -398,35 +330,18 @@ end
 end
 end 
 if i == 0 then 
-t = '*⚠️꒐ لا يوجد بوتات مصنوعة.*'
+t = '▪︎لا يوجد مشتركين.'
 end
 bot.sendText(msg.chat_id,msg.id,t,"md",true)  
 return false
 end
-if redis:get(bot_id..":set:"..msg.chat_id..":upf") then
-if msg.content.document then
-redis:del(bot_id..":set:"..msg.chat_id..":upf") 
-local File_Id = msg.content.document.document.remote.id
-local Name_File = msg.content.document.file_name
-local File = json:decode(https.request('https://api.telegram.org/bot'..Token..'/getfile?file_id='..File_Id)) 
-data,res = https.request('https://api.telegram.org/file/bot'..Token..'/'..File.result.file_path)
-local Inform = io.open("./Files/"..Name_File, "w+")
-Inform:write(data)
-Inform:close()
-bot.sendText(msg.chat_id,msg.id,"☑꒐ رفع الملف بنجاح .","md",true)
-end
-end
-if text == 'تحديث ملف المصنوعات ♻️' then
-redis:set(bot_id..":set:"..msg.chat_id..":upf",true)
-return bot.sendText(msg.chat_id,msg.id,"*🗂️꒐ ارسل الملف الان .*","md",true)
-end
 if text == 'تحديث الصانع 🔁' then    
-bot.sendText(msg.chat_id,msg.id,'*🗂️꒐ تم تحديث ملفات الصانع بنجاح*',"md",true)
+bot.sendText(msg.chat_id,msg.id,'▪︎تم تحديث ملفات الصانع بنجاح',"md",true)  
 dofile("start.lua") 
 return false
 end 
 if text == "/start" then 
-local bl = '*??🏻꒐ أهلا بك في اوامر المطور الجاهزة*' 
+local bl = '▪︎أهلا بك في صانع بوتات الحمايه\n\n▪︎استخدم الاوامر اسفل' 
 return bot.sendText(msg.chat_id,msg.id,bl, 'md', false, false, false, false, reply_markup)
 end
 if redis:get(bot_id.."Send:UserName"..msg.chat_id..":"..msg.sender_id.user_id) == 'true1' then
@@ -434,15 +349,15 @@ local UserName = string.match(text, "@[%a%d_]+")
 if UserName then
 local UserId_Info = bot.searchPublicChat(UserName)
 if not UserId_Info.id then
-bot.sendText(msg.chat_id,msg.id,"*🚸꒐ اليوزر ليس لحساب شخصي تأكد منه .*","md",true)  
+bot.sendText(msg.chat_id,msg.id,"*- اليوزر ليس لحساب شخصي تأكد منه .*","md",true)  
 return false
 end
 if UserId_Info.type.is_channel == true then
-bot.sendText(msg.chat_id,msg.id,"*🚸꒐ اليوزر لقناه او مجموعه تأكد منه*","md",true)  
+bot.sendText(msg.chat_id,msg.id,"*- اليوزر لقناه او مجموعه تأكد منه*","md",true)  
 return false
 end
 if UserName and UserName:match('(%S+)[Bb][Oo][Tt]') then
-bot.sendText(msg.chat_id,msg.id,"*⚠️꒐ عذرا يجب ان تستخدم معرف لحساب شخصي فقط .*","md",true)  
+bot.sendText(msg.chat_id,msg.id,"*- عذرا يجب ان تستخدم معرف لحساب شخصي فقط .*","md",true)  
 return false
 end
 redis:del(bot_id.."Send:UserName"..msg.chat_id..":"..msg.sender_id.user_id) 
@@ -482,7 +397,7 @@ done
 file:close() 
 os.execute('cp -a ./Files/. ../'..useyu..' && cd && cd '..useyu..' && screen -d -m -S '..useyu..' lua5.3 start.lua')
 redis:del(bot_id.."Token:Bot"..msg.chat_id..":"..msg.sender_id.user_id) 
-bot.sendText(msg.chat_id,msg.id,'☑️꒐ تم حفظ معلومات المطور وتم تشغيل البوت بنجاح..', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎تم حفظ معرومات المطور وتم تشغيل البوت بنجاح..', 'md')
 return false  
 end
 end
@@ -491,7 +406,7 @@ if text and text:match("^(%d+)(:)(.*)") then
 local url , res = https.request('https://api.telegram.org/bot'..text..'/getMe')
 local Json_Info = JSON.decode(url)
 if Json_Info.ok == false then
-bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ التوكن خطأ ارسل توكن صالح*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎التوكن خطأ ارسل توكن صالح', 'md')
 return false
 else
 NameBot = Json_Info.result.first_name
@@ -503,42 +418,47 @@ NameBot = NameBot:gsub('*','')
 redis:del(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender_id.user_id) 
 redis:set(bot_id.."Send:UserName"..msg.chat_id..":"..msg.sender_id.user_id,'true1') 
 redis:set(bot_id.."Token:Bot"..msg.chat_id..":"..msg.sender_id.user_id,text) 
-bot.sendText(msg.chat_id,msg.id,'*🔘꒐ تم حفظ توكن البوت بنجاح .\n\n📜꒐معلومات البوت التالية : \n\n• اسم البوت ›* ['..NameBot..'](t.me/'..UserNameBot..')\n*• معرف البوت ›* [@'..UserNameBot..']\n\n*📮꒐ ارسل لي معرف المطور ..*', 'md', false, false, false, false, reply_markup)
+bot.sendText(msg.chat_id,msg.id,'▪︎تم حفظ توكن البوت\n\n▪︎معلومات البوت:-\n\n• اسم البوت : ['..NameBot..']\n•معرف البوت : [@'..UserNameBot..']\n\n▪︎قم الان بأرسال معرف المطور مع @', 'md', false, false, false, false, reply_markup)
 return false
 end
 end
 end
 if text == 'صنع بوت ➕' then
 redis:set(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender_id.user_id,'true') 
-bot.sendText(msg.chat_id,msg.id,'*📭꒐ قم بارسال توكن البوت الان :*',"md",true)  
+bot.sendText(msg.chat_id,msg.id,'▪︎قم بارسال توكن البوت الان',"md",true)  
 return false
 end
 if redis:get(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender_id.user_id) == 'true' then
+redis:del(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender_id.user_id)
 user_b = string.upper(text:gsub('@',''))
 if file_exia(user_b,'/root') then
 if user_b == string.upper(bot.getMe().username) then 
-bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ خطأ في معرف البوت تأكد منه*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎خطأ في معرف البوت تأكد منه', 'md')
 return false 
 end 
 if text and text:match('(%S+)[Bb][Oo][Tt]') then 
-redis:del(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender_id.user_id)
+fi = io.open("/root/"..user_b.."/sudo.lua"):read('*a')
+idnfo = fi:match('id = (%d+)')
+if redis:get(bot_id..":Bot:"..idnfo) then
+redis:del(bot_id..":Bot:"..idnfo)
+redis:del(bot_id.."Del:S:Bot"..idnfo..":"..idnfo)
+end
 os.execute('screen -S '..user_b..' -X kill')
 os.execute('cd && rm -fr '..user_b)
-bot.sendText(msg.chat_id,msg.id,'*⛔꒐ تم حذف وايقاف البوت بنجاح*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎تم حذف وايقاف البوت بنجاح', 'md')
 end
 else
-redis:del(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender_id.user_id)
-bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ عذرا لم يتم التعرف على البوت او لا يوجد*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎عذرا لم يتم التعرف على البوت او لا يوجد', 'md')
 end
 end
-if text == 'حذف بوت ✖️' then
+if text == 'حذف بوت ➖' then
 redis:set(bot_id.."Del:Screen:And:Bot"..msg.chat_id..":"..msg.sender_id.user_id,'true') 
-bot.sendText(msg.chat_id,msg.id,'*🔖꒐ قم بأرسال معرف البوت الان*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎قم بأرسال معرف البوت الان', 'md')
 return false
 end
 if text == 'المصنوعات ♾' then
 local i = 0
-local t = '🔘꒐ قائمة المصنوعات \n — — — — —\n'
+local t = '▪︎المشتركين \n — — — — —\n'
 for v in io.popen('ls /root'):lines() do
 if v then 
 if v ~= bot.getMe().username then 
@@ -550,52 +470,51 @@ end
 end
 end 
 if i == 0 then 
-t = '*⚠️꒐ لا يوجد مصنوعات.*'
+t = '▪︎لا يوجد مشتركين.'
 end
 bot.sendText(msg.chat_id,msg.id,t, 'md')
 return false
 end
 if redis:get(bot_id.."Del:Screen"..msg.chat_id..":"..msg.sender_id.user_id) == 'true' then
+redis:del(bot_id.."Del:Screen"..msg.chat_id..":"..msg.sender_id.user_id) 
 if text and text:match('(%S+)[Bb][Oo][Tt]') then
 user_b = string.upper(text:gsub('@',''))
 if user_b == string.upper(bot.getMe().username) then 
-bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ خطأ في معرف البوت تأكد منه*', 'md', false, false, false, false, reply_markup)
+bot.sendText(msg.chat_id,msg.id,'▪︎خطأ في معرف البوت تأكد منه', 'md', false, false, false, false, reply_markup)
 return false 
 end
-redis:del(bot_id.."Del:Screen"..msg.chat_id..":"..msg.sender_id.user_id) 
 os.execute('screen -S '..user_b..' -X kill')
-bot.sendText(msg.chat_id,msg.id,'*🔘꒐ تم ايقاف تشغيل البوت بنجاح*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎تم ايقاف تشغيل البوت بنجاح', 'md')
 return false  
 end 
 end 
 if text == 'ايقاف بوت 〰️' then
 redis:set(bot_id.."Del:Screen"..msg.chat_id..":"..msg.sender_id.user_id,'true') 
-bot.sendText(msg.chat_id,msg.id,'*📤꒐ قم بارسال معرف البوت الان*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎قم بأرسال معرف البوت الان', 'md')
 return false
 end
 if redis:get(bot_id.."op:Screen"..msg.chat_id..":"..msg.sender_id.user_id) == 'true' then
+redis:del(bot_id.."op:Screen"..msg.chat_id..":"..msg.sender_id.user_id) 
 user_b = string.upper(text:gsub('@',''))
-if file_exia(user_b,'/root') then
+if file_exia(text,'/root') then
 if user_b ~= bot.getMe().username then 
 if text and text:match('(%S+)[Bb][Oo][Tt]') then 
-redis:del(bot_id.."op:Screen"..msg.chat_id..":"..msg.sender_id.user_id) 
-os.execute('screen -S '..user_b..' -X kill')
 os.execute('cd && cd '..user_b..';screen -d -m -S '..user_b..' lua5.3 start.lua')
-bot.sendText(msg.chat_id,msg.id,'*✅꒐ تم تشغيل البوت بنجاح*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎تم تشغيل البوت بنجاح', 'md')
 return false  
 else
-bot.sendText(msg.chat_id,msg.id,'*🚸꒐ المعرف غير مسجل لدي*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎المعرف غير مسجل لدي', 'md')
 end 
 else
-bot.sendText(msg.chat_id,msg.id,'*📛꒐ لا يمكنك عمل رن للمصنع الاساسي*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎لا يمكنك عمل رن للمصنع الاساسي', 'md')
 end 
 else
-bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ لا يوجد بوت مصنوع بهذا المعرف*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎لا يوجد بوت مصنوع بهذا المعرف', 'md')
 end 
 end 
-if text == 'تشغيل بوت ✔️' then
+if text == 'تشغيل بوت 〰️' then
 redis:set(bot_id.."op:Screen"..msg.chat_id..":"..msg.sender_id.user_id,'true') 
-bot.sendText(msg.chat_id,msg.id,'*📮꒐ قم بارسال معرف البوت الان*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎قم بأرسال معرف البوت الان', 'md')
 return false
 end
 if text == 'معلومات السيرفر ⚠️' then
@@ -617,8 +536,11 @@ local ChannelJoin = JSON.decode(url)
 if ChannelJoin.result.status == "left" then
 local reply_inline = bot.replyMarkup{
 type = 'inline',
-data = {{{text = Get_Chat.title, url = Info_Chats.invite_link.invite_link}},}}
-return bot.sendText(msg.chat_id,msg.id,"*\n🚸| عذرا عزيزي .\n🔰| عليك الاشتراك بقناة البوت لتتمكن من استخدامه\n\n- "..Info_Chats.invite_link.invite_link.."\n\n‼️| اشترك ثم ارسل /start*", 'md',true, false, false, false, reply_inline)
+data = {
+{{text = Get_Chat.title, url = Info_Chats.invite_link.invite_link}},
+}
+}
+return bot.sendText(msg.chat_id,msg.id,"- يجب عليك الاشتراك في قناه البوت اولا .\n- القناه اسفل ☟︎︎︎.", 'md',true, false, false, false, reply_inline)
 end
 end
 end
@@ -627,21 +549,18 @@ end
 end
 if text == "/start" then 
 local bl = '▪︎أهلا بك في صانع بوتات الحمايه\n\n▪︎استخدم الاوامر اسفل' 
-return bot.sendText(msg.chat_id,msg.id,bl, 'md', true , false, false, false, reply_markun)
+return bot.sendText(msg.chat_id,msg.id,bl, 'md', false, false, false, false, reply_markun)
 end
-if text == 'معرفة المزيد 📩' then 
-return bot.sendText(msg.chat_id,msg.id,[[*
-- مرحباً بك من جديد عزيزي 👋🏻
-
-- تم انشاء الصانع مقدم من قناة ( سورس سناب . ) مجاناً 
-⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯ ⎯
-- قناة شروحات السورس : @rFrFF .
-- By : @iinzzz .*
-]], 'md', false, false, false, false, reply_markun)
+if text == 'من نحن ؟!📝' then 
+return bot.sendText(msg.chat_id,msg.id,[[• اهلا بك . 
+• يمكنك من خلال هذا البوت عمل بوت خاص بك .
+• بوت حمايه مجموعات بمميزات مدفوعه .
+• يوجد في البوت خطه مدفوعه و خطه مجانيه . 
+  ▪︎ تم تطوير البوت بواسطه ~ @zZzzD .]], 'md', false, false, false, false, reply_markun)
 end
 if redis:get(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender_id.user_id) == 'true' then
 if text == 'إلغاء 🚫' then
-local bl = '*💢꒐ تم الغاء الطلب بنجاح*'
+local bl = '▪︎تم اللغاء الطلب بنجاح'
 redis:del(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender_id.user_id)
 bot.sendText(msg.chat_id,msg.id,bl, 'md', false, false, false, false, reply_markun)
 return false
@@ -650,9 +569,16 @@ if text and text:match("^(%d+)(:)(.*)") then
 local url , res = https.request('https://api.telegram.org/bot'..text..'/getMe')
 local Json_Info = JSON.decode(url)
 if Json_Info.ok == false then
-bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ التوكن خطأ ارسل توكن صالح*', 'md')
+bot.sendText(msg.chat_id,msg.id,'▪︎التوكن خطأ ارسل توكن صالح', 'md')
 return false
 else
+local keyBot = redis:keys(bot_id..':Bot:*')
+for i = 1, #keyBot do 
+if string.upper(Json_Info.result.username) == redis:get(keyBot[i]) then  
+bot.sendText(msg.chat_id,msg.id,'▪︎تم صنع هذا البوت من المصنع سابقا .ارسل توكن جديد', 'md')
+return false
+end
+end
 local url , res = https.request('https://api.telegram.org/bot'..text..'/getMe')
 local Jsonfo = JSON.decode(url)
 Sudo  = msg.sender_id.user_id
@@ -689,15 +615,9 @@ done
 file:close() 
 os.execute('cp -a ./Files/. ../'..useyu..' && cd && cd '..useyu..' && screen -d -m -S '..useyu..' lua5.3 start.lua')
 UserNameBot = Json_Info.result.username
-NameBot = Json_Info.result.first_name
-NameBot = NameBot:gsub('"','') 
-NameBot = NameBot:gsub("'",'') 
-NameBot = NameBot:gsub('`','') 
-NameBot = NameBot:gsub('*','') 
 redis:set(bot_id..":Bot:"..msg.sender_id.user_id,useyu)
 redis:del(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender_id.user_id) 
-bot.sendText(msg.chat_id,msg.id,"*✅꒐ تم صنع البوت الخاص بك بنجاح .*\n\n- أسم البوت › ["..NameBot.."](t.me/"..UserNameBot..")\n\n- معرف البوت › @["..UserNameBot.."]", 'md', false, false, false, false, reply_markun)
-bot.sendText(sudoid,msg.id,"*👤꒐ قام شخص بصنع بوت جديد .. *\n\n*📌꒐ اسم البوت ›* ["..NameBot.."](t.me/"..UserNameBot..")\n\n*🖇️꒐ معرف البوت ›* @["..UserNameBot.."] .", 'md', false, false, false, false, reply_markup)
+bot.sendText(msg.chat_id,msg.id,"▪︎تم صنع البوت بنجاح . @["..UserNameBot.."]", 'md', false, false, false, false, reply_markun)
 return false
 end
 end
@@ -705,45 +625,46 @@ end
 if text == 'صنع بوت ➕' then
 if redis:get(bot_id..":freebot") then
 if redis:get(bot_id..":Bot:"..msg.sender_id.user_id) then
-return bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ لديك بوت من المصنع بالفعل .*', 'md')
+return bot.sendText(msg.chat_id,msg.id,'▪︎لديك بوت من المصنع بالفعل .', 'md')
 else
 redis:set(bot_id.."Send:Token"..msg.chat_id..":"..msg.sender_id.user_id,'true') 
-return bot.sendText(msg.chat_id,msg.id,'*📭꒐ قم بارسال توكن البوت الان :*',"md", false, false, false, false, reply_markui)
+return bot.sendText(msg.chat_id,msg.id,'▪︎قم بارسال توكن البوت الان',"md",true)  
 end
 else
-return bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ عذرأ ، تم ايقاف الوضع المجاني من خلال مطور البوت او يوجد صيانة في الصانع *', 'md', false, false, false, false, reply_markun)
+return bot.sendText(msg.chat_id,msg.id,'▪︎عذرا تم ايقاف الوضع المجاني يمكنك صنع بوت من خلال التواصل من المطور .', 'md', false, false, false, false, reply_markun)
 end
 end
 if text and redis:get(bot_id.."Del:S:Bot"..msg.chat_id..":"..msg.sender_id.user_id) == 'true' then
-if text == 'الغاء ✖️' then
+if text == 'الغاء🔹️' then
+local bl = '▪︎تم اللغاء الطلب بنجاح'
 redis:del(bot_id.."Del:S:Bot"..msg.chat_id..":"..msg.sender_id.user_id) 
-bot.sendText(msg.chat_id,msg.id,'*💢꒐ تم الغاء الطلب بنجاح*', 'md', false, false, false, false, reply_markun)
+bot.sendText(msg.chat_id,msg.id,bl, 'md', false, false, false, false, reply_markun)
 return false  
 end 
 os.execute('screen -S '..redis:get(bot_id..":Bot:"..msg.sender_id.user_id)..' -X kill')
 os.execute('cd && rm -fr '..redis:get(bot_id..":Bot:"..msg.sender_id.user_id))
 redis:del(bot_id..":Bot:"..msg.sender_id.user_id)
 redis:del(bot_id.."Del:S:Bot"..msg.chat_id..":"..msg.sender_id.user_id) 
-bot.sendText(msg.chat_id,msg.id,'*☑️꒐ تم حذف وايقاف البوت بنجاح*', 'md',false, false, false, false, reply_markun)
+bot.sendText(msg.chat_id,msg.id,'▪︎تم حذف وايقاف البوت بنجاح', 'md')
 end
-if text == 'حذف البوت ✖️' then
+if text == 'حذف البوت ➖' then
 if redis:get(bot_id..":Bot:"..msg.sender_id.user_id) then
 redis:set(bot_id.."Del:S:Bot"..msg.chat_id..":"..msg.sender_id.user_id,'true')
-return bot.sendText(msg.chat_id,msg.id,'*⁉️꒐ هل انت متأكد من حذف بوتك .؟*', 'md', false, false, false, false, reply_markuk)
+return bot.sendText(msg.chat_id,msg.id,'▪︎هل انت متأكد من حذف بوتك .', 'md', false, false, false, false, reply_markuk)
 else
-return bot.sendText(msg.chat_id,msg.id,'*⚠️꒐ عذرا لا تمتلك بوت بالفعل .*', 'md', false, false, false, false, reply_markun)
+return bot.sendText(msg.chat_id,msg.id,'▪︎عذرا لا تمتلك بوت بالفعل .', 'md', false, false, false, false, reply_markun)
 end
 end
-if text == 'تشغيل البوت ⚙' then
+if text == 'عمل رن ⚙' then
 if redis:get(bot_id..":Bot:"..msg.sender_id.user_id) then
 u , res = https.request('https://api.telegram.org/bot'..redis:get(bot_id..":Bot:"..msg.sender_id.user_id)..'/getMe')
 JsonSInfo = JSON.decode(u)
 useyu = string.upper(JsonSInfo['result']['username'])
 os.execute('screen -S '..useyu..' -X kill')
 os.execute('cd && cd '..useyu..';screen -d -m -S '..useyu..' lua5.3 start.lua')
-return bot.sendText(msg.chat_id,msg.id,'*✅ ꒐تم تشغيل البوت بنجاح . .*', 'md')
+return bot.sendText(msg.chat_id,msg.id,'▪︎تم تشغيل البوت بنجاح . .', 'md')
 else
-return bot.sendText(msg.chat_id,msg.id,'⚠️꒐ عذرا لا تمتلك بوت لعمل رن .', 'md', false, false, false, false, reply_markun)
+return bot.sendText(msg.chat_id,msg.id,'▪︎عذرا لا تمتلك بوت لأعاده تشغيله .', 'md', false, false, false, false, reply_markun)
 end
 end
 end --- end not devB(
@@ -752,7 +673,7 @@ end --- end Run(
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 function Call(data)
 if data and data.luatele and data.luatele == "updateNewMessage" then
-if data.message.sender_id.luatele == "messageSenderChat" then
+if data.message.sender.luatele == "messageSenderChat" then
 return false
 end
 if tonumber(data.message.sender_id.user_id) ~= tonumber(bot_id) then  
